@@ -1,0 +1,39 @@
+<script>
+  function quicksort(array) {
+
+    if (array.length <= 1) {
+      return array;
+    } else {
+        //criando as variaveis vazias
+      let arrayEsquerda = [];
+      let arrayDireita = [];
+      let novoArray = [];
+      //a função "pop()" pega o ultimo valor do array ou seja ele extrai!
+      let pivot = array.pop();
+
+      //percorrer o array e verificar se cada numero é menor que 
+      //o pivot(ultimo indice do array) quando for menor acrecenta 
+      //ao arrayEsquerda caso contrario ao arrayDireita
+
+      for (let i = 0; i < array.length; i++) {
+        if (array[i] <= pivot) {
+            arrayEsquerda.push(array[i]);
+        } else {
+            arrayDireita.push(array[i]);
+        }
+      }
+      //juntar os array e executar a função no array de cada lado
+      return novoArray.concat(
+        quicksort(ArrayEsquerda),
+        pivot,
+        quicksort(ArrayDireita)
+      );
+    }
+  }
+
+  let array = [23, 45, 16, 37, 3, 99, 22];
+  let arrayOrdenado = quicksort(array);
+
+  console.log("array original", array);
+  console.log("array ordenado", arrayOrdenado);
+</script>
